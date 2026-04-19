@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Carrément Brunch — Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f7f2ea;
+    --cream-soft: #fbf8f2;
+    --ink: #2b2721;
+    --ink-soft: #5a5248;
+    --line: #e4dcce;
+    --accent: #b8694a;
+    --accent-soft: #e9c8a9;
+    --sage: #8a9a7b;
+    --gold: #c9a66b;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    font-weight: 300;
+    min-height: 100vh;
+  }
+
+  /* ─── HEADER ─── */
+  .hero {
+    padding: 80px 24px 60px;
+    text-align: center;
+    position: relative;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 24px; left: 50%;
+    transform: translateX(-50%);
+    width: 40px; height: 1px;
+    background: var(--accent);
+  }
+  .hero .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(44px, 8vw, 88px);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--accent);
+  }
+  .hero p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    max-width: 520px;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+  .hero .ornament {
+    margin: 36px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: var(--accent);
+  }
+  .hero .ornament-line {
+    width: 60px; height: 1px;
+    background: var(--line);
+  }
+  .hero .ornament svg { display: block; }
+
+  /* ─── NAV ─── */
+  .nav {
+    position: sticky;
+    top: 0;
+    background: rgba(247, 242, 234, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    z-index: 100;
+    padding: 16px 24px;
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .nav a {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.25s;
+    position: relative;
+    padding: 4px 0;
+  }
+  .nav a:hover { color: var(--accent); }
+  .nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -2px; left: 0;
+    width: 0; height: 1px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+  .nav a:hover::after { width: 100%; }
+
+  /* ─── SECTIONS ─── */
+  main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .section {
+    padding: 80px 0 40px;
+    scroll-margin-top: 80px;
+  }
+  .section-head {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .section-head h2 {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 2.5 em;
+    color: var(--accent);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .section-head p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    max-width: 420px;
+    margin: 0 auto;
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+  }
+
+  /* ─── GRID ─── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+  }
+  .grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  /* ─── CARD ─── */
+  .card {
+    background: var(--cream-soft);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 32px 28px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 48px -20px rgba(43, 39, 33, 0.18);
+    border-color: var(--accent-soft);
+  }
+  .card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.4s ease;
+  }
+  .card:hover::before { width: 40px; }
+
+  .card-visual {
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .card-visual svg {
+    width: 100%;
+    height: 100%;
+  }
+  .card-number {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .card h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    margin-bottom: 14px;
+    line-height: 1.25;
+  }
+  .card .divider {
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+    margin-bottom: 14px;
+    opacity: 0.6;
+  }
+  .card .layers {
+    list-style: none;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+  .card .layers li {
+    position: relative;
+  }
+  .card .layers li + li {
+    margin-top: 2px;
+  }
+  .card .description {
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+  }
+
+  /* ─── DRINKS SECTION ─── */
+  .drinks-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 24px;
+  }
+  .drinks-col h4 {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 20px;
+    text-align: center;
+    color: var(--accent);
+    margin-bottom: 28px;
+    font-weight: 400;
+  }
+  .drinks-col h4::before,
+  .drinks-col h4::after {
+    content: "—";
+    margin: 0 12px;
+    color: var(--line);
+  }
+  .drinks-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .drink-card {
+    background: var(--cream-soft);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 24px 16px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  .drink-card:hover {
+    border-color: var(--accent-soft);
+    transform: translateY(-2px);
+  }
+  .drink-card .card-visual {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 12px;
+  }
+  .drink-card h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  /** IMAGE  */
+  .fit-picture {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+
+
+  @media (max-width: 680px) {
+    .drinks-wrapper { grid-template-columns: 1fr; gap: 32px; }
+    .drinks-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    margin-top: 80px;
+    padding: 48px 24px;
+    text-align: center;
+    border-top: 1px solid var(--line);
+    background: var(--cream-soft);
+  }
+  footer .mark {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  footer p {
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .card, .drink-card, .section-head {
+    animation: fadeUp 0.7s ease backwards;
+  }
+  .card:nth-child(1) { animation-delay: 0.05s; }
+  .card:nth-child(2) { animation-delay: 0.12s; }
+  .card:nth-child(3) { animation-delay: 0.19s; }
+  .card:nth-child(4) { animation-delay: 0.26s; }
+
+  @media print {
+    .nav { display: none; }
+    .card { break-inside: avoid; }
+    body { background: white; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HERO ═══════════ -->
+<header class="hero">
+  <div class="eyebrow">Menu d'été</div>
+  <img
+  class="fit-picture"
+  src="./presentation.png"
+  alt="Gamme de plats"/>
+  <div class="ornament">
+    <span class="ornament-line"></span>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <rect x="2" y="2" width="12" height="12" stroke="currentColor" stroke-width="0.8" fill="none"/>
+      <rect x="5" y="5" width="6" height="6" fill="currentColor" opacity="0.3"/>
+    </svg>
+    <span class="ornament-line"></span>
+  </div>
+</header>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#sucre">Sucré</a>
+    <a href="#viennoiseries">Viennoiseries</a>
+    <a href="#sale">Salé</a>
+    <a href="#boissons">Boissons</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ═══════════ SUCRÉ ═══════════ -->
+<section class="section" id="sucre">
+  <div class="section-head">
+
+    <h2>I. Sucré</h2>
+    <p>Des douceurs en couches, à savourer à la cuillère.</p>
+  </div>
+  <div class="grid grid-3">
+
+    <!-- Crumble pomme -->
+    <article class="card">
+      <div class="card-visual">
+        <svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+          <!-- Container -->
+          <rect x="35" y="30" width="110" height="130" rx="3"
+                fill="rgba(255,255,255,0.35)" stroke="#d4cab8" stroke-width="1.2"/>
+          <!-- Top highlight -->
+          <line x1="35" y1="35" x2="145" y2="35" stroke="#fff" stroke-width="1.5" opacity="0.8"/>
+          <!-- Layer: genoise biscuit (bottom) -->
+          <rect x="37" y="125" width="106" height="33" fill="#e4c38a"/>
+          <circle cx="55" cy="140" r="2" fill="#c9a66b" opacity="0.5"/>
+          <circle cx="90" cy="148" r="1.5" fill="#c9a66b" opacity="0.4"/>
+          <circle cx="120" cy="138" r="2" fill="#c9a66b" opacity="0.5"/>
+          <!-- Layer: whipped cream -->
+          <rect x="37" y="100" width="106" height="25" fill="#fdfaf2"/>
+          <path d="M37,100 Q55,95 72,100 T107,100 T143,100 L143,105 L37,105 Z" fill="#fdfaf2"/>
+          <!-- Layer: salted caramel -->
+          <rect x="37" y="85" width="106" height="15" fill="#b8692a"/>
+          <path d="M37,85 Q60,82 90,85 T143,85 L143,90 L37,90 Z" fill="#a85a1f"/>
+          <!-- Layer: caramelized apples + crumble -->
+          <rect x="37" y="55" width="106" height="30" fill="#e8d4a8"/>
+          <!-- apple dice -->
+          <rect x="44" y="60" width="10" height="8" fill="#d4a464" rx="1"/>
+          <rect x="58" y="63" width="9" height="9" fill="#c89050" rx="1"/>
+          <rect x="72" y="58" width="11" height="8" fill="#d4a464" rx="1"/>
+          <rect x="88" y="62" width="10" height="9" fill="#c89050" rx="1"/>
+          <rect x="104" y="60" width="10" height="8" fill="#d4a464" rx="1"/>
+          <rect x="119" y="64" width="11" height="7" fill="#c89050" rx="1"/>
+          <!-- crumble crumbs -->
+          <circle cx="50" cy="76" r="2" fill="#a67142"/>
+          <circle cx="68" cy="78" r="1.8" fill="#8b5a2b"/>
+          <circle cx="85" cy="76" r="2.2" fill="#a67142"/>
+          <circle cx="102" cy="78" r="1.8" fill="#8b5a2b"/>
+          <circle cx="120" cy="76" r="2" fill="#a67142"/>
+          <circle cx="134" cy="78" r="1.6" fill="#8b5a2b"/>
+          <!-- Container edge shine -->
+          <line x1="38" y1="35" x2="38" y2="158" stroke="#fff" stroke-width="1" opacity="0.5"/>
+        </svg>
+      </div>
+      <div class="card-number">01</div>
+      <h4>Crumble de pomme caramélisée</h4>
+      <div class="divider"></div>
+      <ul class="layers">
+        <li>Dés de pomme caramélisés, miettes de crumble</li>
+        <li>Caramel au beurre salé</li>
+        <li>Crème fouettée</li>
+        <li>Biscuit génoise</li>
+      </ul>
+    </article>
+
+    <!-- Tiramisu -->
+    <article class="card">
+      <div class="card-visual">
+        <svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+          <!-- Container -->
+          <rect x="35" y="30" width="110" height="130" rx="3"
+                fill="rgba(255,255,255,0.35)" stroke="#d4cab8" stroke-width="1.2"/>
+          <line x1="35" y1="35" x2="145" y2="35" stroke="#fff" stroke-width="1.5" opacity="0.8"/>
+          <!-- Layer 6: ladyfinger (bottom) -->
+          <rect x="37" y="140" width="106" height="18" fill="#edd9a8"/>
+          <rect x="40" y="143" width="100" height="12" fill="#e4c890" rx="1"/>
+          <!-- Layer 5: mascarpone -->
+          <rect x="37" y="122" width="106" height="18" fill="#faf3e3"/>
+          <!-- Layer 4: white chocolate glaze -->
+          <rect x="37" y="110" width="106" height="12" fill="#f0e4c4"/>
+          <path d="M37,110 Q55,108 70,111 T105,109 T143,112 L143,115 L37,115 Z" fill="#e8d7a8"/>
+          <!-- Layer 3: ladyfinger -->
+          <rect x="37" y="90" width="106" height="20" fill="#edd9a8"/>
+          <rect x="40" y="93" width="100" height="14" fill="#e4c890" rx="1"/>
+          <!-- droplets of lemon syrup -->
+          <circle cx="55" cy="100" r="1.5" fill="#d4b855" opacity="0.6"/>
+          <circle cx="90" cy="102" r="1.5" fill="#d4b855" opacity="0.6"/>
+          <circle cx="125" cy="100" r="1.5" fill="#d4b855" opacity="0.6"/>
+          <!-- Layer 2: mascarpone -->
+          <rect x="37" y="65" width="106" height="25" fill="#faf3e3"/>
+          <!-- Layer 1: white chocolate chips -->
+          <rect x="37" y="50" width="106" height="15" fill="#faf3e3"/>
+          <!-- chips -->
+          <polygon points="45,55 52,54 50,62 43,62" fill="#fbe9c0"/>
+          <polygon points="58,56 66,54 64,61 56,63" fill="#f0dda8"/>
+          <polygon points="72,54 80,55 79,62 70,62" fill="#fbe9c0"/>
+          <polygon points="87,55 95,53 93,62 85,63" fill="#f0dda8"/>
+          <polygon points="102,53 110,55 108,61 100,62" fill="#fbe9c0"/>
+          <polygon points="115,56 123,54 121,62 113,62" fill="#f0dda8"/>
+          <polygon points="128,54 136,56 135,62 126,62" fill="#fbe9c0"/>
+          <!-- lemon zest accent -->
+          <rect x="67" y="58" width="4" height="1" fill="#d4b855"/>
+          <rect x="98" y="57" width="4" height="1" fill="#d4b855"/>
+          <line x1="38" y1="35" x2="38" y2="158" stroke="#fff" stroke-width="1" opacity="0.5"/>
+        </svg>
+      </div>
+      <div class="card-number">02</div>
+      <h4>Tiramisu chocolat blanc &amp; citron</h4>
+      <div class="divider"></div>
+      <ul class="layers">
+        <li>Éclats de chocolat blanc</li>
+        <li>Mascarpone</li>
+        <li>Nappage chocolat blanc</li>
+        <li>Biscuit boudoir au sirop de citron</li>
+      </ul>
+    </article>
+
+    <!-- Fruits en gelée -->
+    <article class="card">
+      <div class="card-visual">
+        <svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+          <!-- Container -->
+          <rect x="35" y="30" width="110" height="130" rx="3"
+                fill="rgba(255,255,255,0.35)" stroke="#d4cab8" stroke-width="1.2"/>
+          <line x1="35" y1="35" x2="145" y2="35" stroke="#fff" stroke-width="1.5" opacity="0.8"/>
+          <!-- Jelly (translucent yellow) -->
+          <rect x="37" y="42" width="106" height="116" fill="#fbe8a8" opacity="0.55"/>
+          <rect x="37" y="42" width="106" height="116" fill="none" stroke="#f0d878" stroke-width="0.5" opacity="0.4"/>
+          <!-- Fruit pieces suspended -->
+          <!-- strawberry -->
+          <path d="M60,70 Q66,62 72,70 Q72,80 66,82 Q60,80 60,70 Z" fill="#d4484e"/>
+          <circle cx="64" cy="73" r="0.6" fill="#f5c0c4"/>
+          <circle cx="68" cy="75" r="0.6" fill="#f5c0c4"/>
+          <circle cx="66" cy="78" r="0.6" fill="#f5c0c4"/>
+          <path d="M63,66 L66,62 L69,66 Z" fill="#6a8f4a"/>
+          <!-- mango (cube orange) -->
+          <rect x="95" y="65" width="16" height="14" fill="#f2a845" rx="2"/>
+          <rect x="97" y="67" width="12" height="3" fill="#f7c078" rx="1"/>
+          <!-- peach (pink round) -->
+          <circle cx="55" cy="105" r="9" fill="#f0a68a"/>
+          <circle cx="53" cy="103" r="3" fill="#f5bca5" opacity="0.7"/>
+          <path d="M55,96 Q55,105 55,114" stroke="#c87660" stroke-width="0.6" fill="none"/>
+          <!-- kiwi (green circle with seeds) -->
+          <circle cx="110" cy="110" r="11" fill="#a8c878"/>
+          <circle cx="110" cy="110" r="8" fill="#c4de94"/>
+          <circle cx="110" cy="110" r="2" fill="#f4ebd0"/>
+          <!-- kiwi seeds -->
+          <ellipse cx="107" cy="106" rx="0.6" ry="1" fill="#2b2721"/>
+          <ellipse cx="113" cy="107" rx="0.6" ry="1" fill="#2b2721"/>
+          <ellipse cx="108" cy="113" rx="0.6" ry="1" fill="#2b2721"/>
+          <ellipse cx="114" cy="112" rx="0.6" ry="1" fill="#2b2721"/>
+          <ellipse cx="105" cy="110" rx="0.6" ry="1" fill="#2b2721"/>
+          <ellipse cx="111" cy="115" rx="0.6" ry="1" fill="#2b2721"/>
+          <!-- pineapple accent top -->
+          <rect x="70" y="140" width="14" height="8" fill="#fbe8a8" rx="1" opacity="0.9"/>
+          <rect x="88" y="142" width="12" height="7" fill="#fbe8a8" rx="1" opacity="0.9"/>
+          <line x1="38" y1="35" x2="38" y2="158" stroke="#fff" stroke-width="1" opacity="0.5"/>
+        </svg>
+      </div>
+      <div class="card-number">03</div>
+      <h4>Fruits en gelée</h4>
+      <div class="divider"></div>
+      <ul class="layers">
+        <li>Jus d'ananas gélifié</li>
+        <li>Fraise, mangue, pêche, kiwi</li>
+      </ul>
+    </article>
+
+  </div>
+</section>
+
+<!-- ═══════════ VIENNOISERIES ═══════════ -->
+<section class="section" id="viennoiseries">
+  <div class="section-head">
+    <h2>II. Viennoiseries</h2>
+    <p>Dorées, feuilletées, moelleuses. Les essentiels du matin.</p>
+  </div>
+  <div class="grid grid-3">
+
+    <!-- Cube croissant -->
+    <article class="card">
+      <div class="card-visual">
+        <svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+          <!-- Croissant cube -->
+          <g transform="translate(30, 40)">
+            <!-- front face -->
+            <path d="M15,40 L15,110 L100,110 L100,40 Z" fill="#d9a25a"/>
+            <!-- top face (perspective) -->
+            <path d="M15,40 L35,20 L120,20 L100,40 Z" fill="#e4b570"/>
+            <!-- right face -->
+            <path d="M100,40 L120,20 L120,90 L100,110 Z" fill="#b98442"/>
+            <!-- flaky layers (front) -->
+            <path d="M15,55 Q30,52 50,56 T100,55" stroke="#a97540" stroke-width="1" fill="none" opacity="0.6"/>
+            <path d="M15,72 Q35,69 55,73 T100,71" stroke="#a97540" stroke-width="1" fill="none" opacity="0.6"/>
+            <path d="M15,88 Q30,85 55,89 T100,87" stroke="#a97540" stroke-width="1" fill="none" opacity="0.6"/>
+            <!-- flakes on top -->
+            <path d="M35,20 L45,28 L55,22 L65,30 L75,24 L85,30 L95,24 L105,28 L120,20"
+                  stroke="#a97540" stroke-width="0.8" fill="none" opacity="0.5"/>
+            <path d="M25,30 L45,30 L65,28 L85,30 L105,28" stroke="#f0c488" stroke-width="0.6" fill="none" opacity="0.7"/>
+            <!-- buttery highlights -->
+            <ellipse cx="55" cy="70" rx="20" ry="4" fill="#f0c488" opacity="0.25"/>
+            <ellipse cx="75" cy="30" rx="15" ry="2" fill="#fbe0a8" opacity="0.5"/>
+          </g>
+        </svg>
+      </div>
+      <div class="card-number">01</div>
+      <h4>Cube au croissant</h4>
+      <div class="divider"></div>
+      <p class="description">Croissant feuilleté, façon cube doré</p>
+    </article>
+
+    <!-- Cube brioche -->
+    <article class="card">
+      <div class="card-visual">
+        <svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(30, 40)">
+            <!-- front -->
+            <path d="M15,40 L15,110 L100,110 L100,40 Z" fill="#e8c085"/>
+            <!-- top -->
+            <path d="M15,40 L35,20 L120,20 L100,40 Z" fill="#f0cc95"/>
+            <!-- right -->
+            <path d="M100,40 L120,20 L120,90 L100,110 Z" fill="#c89a60"/>
+            <!-- soft brioche texture (front) -->
+            <circle cx="30" cy="60" r="1.5" fill="#d4a66a" opacity="0.5"/>
+            <circle cx="55" cy="55" r="1.2" fill="#d4a66a" opacity="0.5"/>
+            <circle cx="80" cy="65" r="1.5" fill="#d4a66a" opacity="0.5"/>
+            <circle cx="40" cy="80" r="1" fill="#d4a66a" opacity="0.5"/>
+            <circle cx="70" cy="85" r="1.3" fill="#d4a66a" opacity="0.5"/>
+            <circle cx="90" cy="95" r="1.2" fill="#d4a66a" opacity="0.5"/>
+            <circle cx="25" cy="95" r="1.4" fill="#d4a66a" opacity="0.5"/>
+            <!-- shiny glaze highlight -->
+            <path d="M20,45 Q45,42 75,44 T98,45" stroke="#fbe0a8" stroke-width="2" fill="none" opacity="0.6"/>
+            <ellipse cx="60" cy="70" rx="28" ry="6" fill="#fbe0a8" opacity="0.2"/>
+            <!-- top shine -->
+            <path d="M40,25 Q75,22 115,24" stroke="#fdf0d0" stroke-width="1.5" fill="none" opacity="0.8"/>
+          </g>
+        </svg>
+      </div>
+      <div class="card-number">02</div>
+      <h4>Cube à la brioche</h4>
+      <div class="divider"></div>
+      <p class="description">Brioche moelleuse, dorée au four</p>
+    </article>
+
+    <!-- Pain perdu -->
+    <article class="card">
+      <div class="card-visual">
+        <svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+          <!-- slice -->
+          <g transform="translate(25, 50)">
+            <!-- back shadow -->
+            <path d="M15,45 L30,30 L115,30 L130,45 L130,95 L15,95 Z" fill="#c89a60" opacity="0.3"/>
+            <!-- top of slice -->
+            <path d="M15,45 L30,30 L115,30 L130,45 Z" fill="#e4b570"/>
+            <!-- front face -->
+            <path d="M15,45 L130,45 L130,95 L15,95 Z" fill="#d9a25a"/>
+            <!-- grill marks -->
+            <line x1="25" y1="55" x2="120" y2="55" stroke="#a97540" stroke-width="1.5" opacity="0.5"/>
+            <line x1="25" y1="70" x2="120" y2="70" stroke="#a97540" stroke-width="1.5" opacity="0.5"/>
+            <line x1="25" y1="85" x2="120" y2="85" stroke="#a97540" stroke-width="1.5" opacity="0.5"/>
+            <!-- caramelized edges -->
+            <path d="M15,45 L30,30" stroke="#8b5a2b" stroke-width="1.5" fill="none"/>
+            <path d="M115,30 L130,45" stroke="#8b5a2b" stroke-width="1.5" fill="none"/>
+            <!-- powdered sugar dust -->
+            <circle cx="40" cy="38" r="1.2" fill="#fff" opacity="0.95"/>
+            <circle cx="55" cy="35" r="0.8" fill="#fff" opacity="0.85"/>
+            <circle cx="70" cy="38" r="1.3" fill="#fff" opacity="0.95"/>
+            <circle cx="85" cy="34" r="0.9" fill="#fff" opacity="0.9"/>
+            <circle cx="100" cy="37" r="1.1" fill="#fff" opacity="0.9"/>
+            <circle cx="115" cy="36" r="0.8" fill="#fff" opacity="0.85"/>
+            <circle cx="35" cy="60" r="0.8" fill="#fff" opacity="0.75"/>
+            <circle cx="50" cy="52" r="1" fill="#fff" opacity="0.85"/>
+            <circle cx="80" cy="50" r="0.7" fill="#fff" opacity="0.7"/>
+            <circle cx="105" cy="58" r="0.9" fill="#fff" opacity="0.8"/>
+            <circle cx="60" cy="75" r="0.7" fill="#fff" opacity="0.7"/>
+            <circle cx="90" cy="78" r="0.8" fill="#fff" opacity="0.75"/>
+            <circle cx="115" cy="72" r="0.8" fill="#fff" opacity="0.75"/>
+            <circle cx="30" cy="80" r="0.7" fill="#fff" opacity="0.7"/>
+            <circle cx="75" cy="90" r="0.9" fill="#fff" opacity="0.8"/>
+          </g>
+        </svg>
+      </div>
+      <div class="card-number">03</div>
+      <h4>Pain perdu, sucre glace</h4>
+      <div class="divider"></div>
+      <p class="description">Tranche dorée au beurre, délicatement sucrée</p>
+    </article>
+
+  </div>
+</section>
+
+<!-- ═══════════ SALÉ ═══════════ -->
+<section class="section" id="sale">
+  <div class="section-head">
+    <h2>III. Salé</h2>
+    <p>Sandwichs &amp; toasts, assemblés avec soin, enroulés dans notre papier kraft.</p>
+  </div>
+  <div class="grid">
+
+    <!-- Sandwich pastrami -->
+    <article class="card">
+      <div class="card-visual">
+        <svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+          <!-- container outline -->
+          <rect x="30" y="30" width="120" height="120" rx="3"
+                fill="rgba(255,255,255,0.2)" stroke="#d4cab8" stroke-width="1"/>
+          <!-- kraft paper wrap -->
+          <path d="M30,100 L150,100 L150,130 L30,130 Z" fill="#b08758"/>
+          <path d="M30,100 L150,100 L150,100 L30,100 Z" fill="#9a7348"/>
+          <path d="M30,125 L150,125 L150,130 L30,130 Z" fill="#9a7348"/>
+          <line x1="60" y1="100" x2="58" y2="130" stroke="#9a7348" stroke-width="0.5" opacity="0.6"/>
+          <line x1="100" y1="100" x2="102" y2="130" stroke="#9a7348" stroke-width="0.5" opacity="0.6"/>
+          <!-- Sandwich above/below paper (visible layers) -->
+          <!-- top bread -->
+          <rect x="45" y="45" width="90" height="14" fill="#e4b570" rx="2"/>
+          <ellipse cx="90" cy="46" rx="40" ry="2" fill="#fdf0d0" opacity="0.6"/>
+          <!-- honey mustard sauce -->
+          <path d="M45,59 Q60,62 80,59 T115,61 T135,59 L135,63 L45,63 Z" fill="#d4a43a"/>
+          <!-- caramelized onions -->
+          <rect x="47" y="63" width="86" height="6" fill="#a8683c"/>
+          <path d="M50,66 Q55,64 60,66 T70,66 T80,66 T90,66 T100,66 T110,66 T120,66 T130,66" stroke="#7a4a28" stroke-width="0.6" fill="none"/>
+          <!-- pastrami x5 -->
+          <rect x="47" y="69" width="86" height="5" fill="#a84040"/>
+          <rect x="47" y="74" width="86" height="5" fill="#962f34"/>
+          <rect x="47" y="79" width="86" height="5" fill="#a84040"/>
+          <rect x="47" y="84" width="86" height="5" fill="#962f34"/>
+          <rect x="47" y="89" width="86" height="5" fill="#a84040"/>
+          <!-- pastrami texture -->
+          <line x1="55" y1="71" x2="130" y2="71" stroke="#7a2a2e" stroke-width="0.3" opacity="0.5"/>
+          <line x1="55" y1="81" x2="130" y2="81" stroke="#7a2a2e" stroke-width="0.3" opacity="0.5"/>
+          <line x1="55" y1="91" x2="130" y2="91" stroke="#7a2a2e" stroke-width="0.3" opacity="0.5"/>
+          <!-- bottom bread -->
+          <rect x="45" y="94" width="90" height="14" fill="#e4b570" rx="2"/>
+          <ellipse cx="90" cy="107" rx="40" ry="2" fill="#a97540" opacity="0.4"/>
+        </svg>
+      </div>
+      <div class="card-number">01</div>
+      <h4>Sandwich Pastrami</h4>
+      <div class="divider"></div>
+      <ul class="layers">
+        <li>Sauce miel &amp; moutarde à l'ancienne</li>
+        <li>Oignons confits</li>
+        <li>Pastrami</li>
+        <li>Pain grillé</li>
+      </ul>
+    </article>
+
+    <!-- Sandwich porc effiloché -->
+    <article class="card">
+      <div class="card-visual">
+        <svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+          <rect x="30" y="30" width="120" height="120" rx="3"
+                fill="rgba(255,255,255,0.2)" stroke="#d4cab8" stroke-width="1"/>
+          <!-- kraft paper -->
+          <path d="M30,100 L150,100 L150,130 L30,130 Z" fill="#b08758"/>
+          <path d="M30,100 L150,100 L150,100 L30,100 Z" fill="#9a7348"/>
+          <path d="M30,125 L150,125 L150,130 L30,130 Z" fill="#9a7348"/>
+          <line x1="60" y1="100" x2="58" y2="130" stroke="#9a7348" stroke-width="0.5" opacity="0.6"/>
+          <line x1="100" y1="100" x2="102" y2="130" stroke="#9a7348" stroke-width="0.5" opacity="0.6"/>
+          <!-- top brioche bread (more golden/shiny) -->
+          <rect x="45" y="45" width="90" height="14" fill="#f0c485" rx="3"/>
+          <ellipse cx="90" cy="47" rx="42" ry="2" fill="#fdf0d0" opacity="0.7"/>
+          <path d="M50,50 Q70,48 90,50 T130,50" stroke="#c89a60" stroke-width="0.5" fill="none" opacity="0.5"/>
+          <!-- BBQ sauce -->
+          <path d="M45,59 Q62,63 82,59 T118,62 T135,60 L135,64 L45,64 Z" fill="#7a2a1a"/>
+          <path d="M48,60 Q60,62 72,60" stroke="#5a1a0a" stroke-width="0.5" fill="none" opacity="0.6"/>
+          <!-- marinated cabbage (red + white strands) -->
+          <rect x="47" y="64" width="86" height="8" fill="#f0e8d8"/>
+          <path d="M50,68 Q55,66 60,68" stroke="#a84060" stroke-width="1" fill="none"/>
+          <path d="M62,70 Q70,68 78,70" stroke="#c45078" stroke-width="1" fill="none"/>
+          <path d="M80,68 Q85,66 92,68" stroke="#a84060" stroke-width="1" fill="none"/>
+          <path d="M95,70 Q100,68 108,70" stroke="#c45078" stroke-width="1" fill="none"/>
+          <path d="M110,68 Q118,66 128,68" stroke="#a84060" stroke-width="1" fill="none"/>
+          <line x1="50" y1="66" x2="130" y2="66" stroke="#d4c8a8" stroke-width="0.4"/>
+          <line x1="50" y1="71" x2="130" y2="71" stroke="#d4c8a8" stroke-width="0.4"/>
+          <!-- pulled pork -->
+          <rect x="47" y="72" width="86" height="18" fill="#b8683c"/>
+          <path d="M50,75 Q58,73 66,75 Q74,77 82,74 Q90,72 98,75 Q106,78 114,74 Q122,72 130,75"
+                stroke="#8b4a28" stroke-width="1" fill="none"/>
+          <path d="M48,80 Q56,78 64,80 Q72,82 80,79 Q88,77 96,80 Q104,83 112,79 Q120,77 132,80"
+                stroke="#8b4a28" stroke-width="1" fill="none"/>
+          <path d="M50,85 Q58,83 66,85 Q74,87 82,84 Q90,82 98,85 Q106,88 114,84 Q122,82 130,85"
+                stroke="#8b4a28" stroke-width="1" fill="none"/>
+          <path d="M52,77 Q60,75 68,77" stroke="#e0a070" stroke-width="0.6" fill="none"/>
+          <path d="M88,82 Q96,80 104,82" stroke="#e0a070" stroke-width="0.6" fill="none"/>
+          <!-- bottom brioche -->
+          <rect x="45" y="90" width="90" height="14" fill="#f0c485" rx="3"/>
+        </svg>
+      </div>
+      <div class="card-number">02</div>
+      <h4>Sandwich Porc Effiloché</h4>
+      <div class="divider"></div>
+      <ul class="layers">
+        <li>Sauce barbecue</li>
+        <li>Chou mariné rouge &amp; blanc</li>
+        <li>Porc effiloché</li>
+        <li>Pain brioché grillé</li>
+      </ul>
+    </article>
+
+    <!-- Toast saumon avocat -->
+    <article class="card">
+      <div class="card-visual">
+        <svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+          <rect x="30" y="30" width="120" height="120" rx="3"
+                fill="rgba(255,255,255,0.2)" stroke="#d4cab8" stroke-width="1"/>
+          <!-- kraft paper band -->
+          <path d="M30,100 L150,100 L150,135 L30,135 Z" fill="#b08758"/>
+          <path d="M30,100 L150,100 L150,104 L30,104 Z" fill="#9a7348"/>
+          <!-- toast base -->
+          <rect x="40" y="80" width="100" height="20" fill="#e4b570" rx="2"/>
+          <path d="M45,85 Q70,83 95,85 T135,85" stroke="#a97540" stroke-width="0.5" fill="none" opacity="0.6"/>
+          <!-- avocado mash -->
+          <rect x="42" y="72" width="96" height="10" fill="#8a9a5b" rx="1"/>
+          <path d="M48,76 Q60,74 72,76 Q84,78 96,75 Q108,74 120,76 Q128,78 134,76"
+                stroke="#6a7a3b" stroke-width="0.5" fill="none"/>
+          <ellipse cx="70" cy="76" rx="8" ry="2" fill="#a8b87b" opacity="0.6"/>
+          <ellipse cx="110" cy="77" rx="6" ry="1.5" fill="#a8b87b" opacity="0.6"/>
+          <!-- salmon slice -->
+          <path d="M44,65 Q55,62 70,65 Q85,68 100,64 Q115,62 130,66 Q138,68 138,72 L44,72 Z"
+                fill="#e68a60"/>
+          <path d="M48,67 Q62,65 76,67" stroke="#fbc4a8" stroke-width="0.8" fill="none"/>
+          <path d="M82,69 Q96,66 110,69" stroke="#fbc4a8" stroke-width="0.8" fill="none"/>
+          <path d="M116,67 Q128,65 136,68" stroke="#fbc4a8" stroke-width="0.8" fill="none"/>
+          <!-- sprouts + cherry tomatoes -->
+          <circle cx="55" cy="58" r="3" fill="#d44840"/>
+          <circle cx="54" cy="57" r="0.8" fill="#f5a09c" opacity="0.7"/>
+          <path d="M55,55 L55,52" stroke="#4a6a2a" stroke-width="0.5"/>
+          <circle cx="100" cy="57" r="3" fill="#d44840"/>
+          <circle cx="99" cy="56" r="0.8" fill="#f5a09c" opacity="0.7"/>
+          <path d="M100,54 L100,51" stroke="#4a6a2a" stroke-width="0.5"/>
+          <circle cx="125" cy="58" r="3" fill="#d44840"/>
+          <circle cx="124" cy="57" r="0.8" fill="#f5a09c" opacity="0.7"/>
+          <!-- sprouts -->
+          <path d="M65,60 Q68,55 72,58" stroke="#8aaa5b" stroke-width="1" fill="none"/>
+          <path d="M75,60 Q78,54 82,58" stroke="#8aaa5b" stroke-width="1" fill="none"/>
+          <path d="M85,60 Q88,55 92,58" stroke="#8aaa5b" stroke-width="1" fill="none"/>
+          <path d="M108,60 Q111,55 115,58" stroke="#8aaa5b" stroke-width="1" fill="none"/>
+          <!-- almonds -->
+          <ellipse cx="48" cy="54" rx="2" ry="0.8" fill="#e4c890" transform="rotate(-20 48 54)"/>
+          <ellipse cx="70" cy="52" rx="2" ry="0.8" fill="#e4c890" transform="rotate(30 70 52)"/>
+          <ellipse cx="88" cy="50" rx="2" ry="0.8" fill="#e4c890" transform="rotate(-10 88 50)"/>
+          <ellipse cx="115" cy="52" rx="2" ry="0.8" fill="#e4c890" transform="rotate(20 115 52)"/>
+          <ellipse cx="135" cy="54" rx="2" ry="0.8" fill="#e4c890" transform="rotate(-30 135 54)"/>
+        </svg>
+      </div>
+      <div class="card-number">03</div>
+      <h4>Toast Saumon &amp; Avocat</h4>
+      <div class="divider"></div>
+      <ul class="layers">
+        <li>Amandes effilées</li>
+        <li>Graines germées &amp; tomates cerises</li>
+        <li>Tranche de saumon fumé</li>
+        <li>Écrasé d'avocat au citron</li>
+        <li>Pain grillé</li>
+      </ul>
+    </article>
+
+    <!-- Toast feta pêche -->
+    <article class="card">
+      <div class="card-visual">
+        <svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+          <rect x="30" y="30" width="120" height="120" rx="3"
+                fill="rgba(255,255,255,0.2)" stroke="#d4cab8" stroke-width="1"/>
+          <!-- kraft paper band -->
+          <path d="M30,100 L150,100 L150,135 L30,135 Z" fill="#b08758"/>
+          <path d="M30,100 L150,100 L150,104 L30,104 Z" fill="#9a7348"/>
+          <!-- toast -->
+          <rect x="40" y="82" width="100" height="20" fill="#e4b570" rx="2"/>
+          <path d="M45,87 Q70,85 95,87 T135,87" stroke="#a97540" stroke-width="0.5" fill="none" opacity="0.6"/>
+          <!-- feta cream -->
+          <rect x="42" y="72" width="96" height="12" fill="#faf3e3" rx="1"/>
+          <circle cx="55" cy="78" r="1.5" fill="#ede2c8" opacity="0.8"/>
+          <circle cx="80" cy="76" r="1.8" fill="#ede2c8" opacity="0.8"/>
+          <circle cx="105" cy="78" r="1.5" fill="#ede2c8" opacity="0.8"/>
+          <circle cx="125" cy="77" r="1.3" fill="#ede2c8" opacity="0.8"/>
+          <path d="M45,82 Q60,80 75,82" stroke="#d8ccb0" stroke-width="0.4" fill="none" opacity="0.7"/>
+          <!-- grilled peach slices -->
+          <path d="M50,58 Q55,50 62,55 Q65,65 60,72 Q52,70 50,58 Z" fill="#f5a878"/>
+          <path d="M52,60 Q58,56 60,62" stroke="#c07848" stroke-width="0.6" fill="none"/>
+          <path d="M55,65 L58,68" stroke="#c07848" stroke-width="0.6"/>
+          <ellipse cx="56" cy="63" rx="1.5" ry="2.5" fill="#fbc4a0" opacity="0.5"/>
+
+          <path d="M75,55 Q82,48 90,55 Q92,65 86,72 Q77,70 75,55 Z" fill="#f5a878"/>
+          <path d="M78,58 Q84,54 88,60" stroke="#c07848" stroke-width="0.6" fill="none"/>
+          <ellipse cx="82" cy="62" rx="1.8" ry="3" fill="#fbc4a0" opacity="0.5"/>
+
+          <path d="M100,58 Q107,51 115,56 Q118,66 112,72 Q102,70 100,58 Z" fill="#f5a878"/>
+          <path d="M103,60 Q109,56 113,62" stroke="#c07848" stroke-width="0.6" fill="none"/>
+          <ellipse cx="108" cy="63" rx="1.7" ry="2.8" fill="#fbc4a0" opacity="0.5"/>
+
+          <!-- honey drizzle -->
+          <path d="M52,52 Q56,48 62,50 Q68,52 74,50 Q80,48 88,51 Q96,54 104,51 Q112,49 120,52"
+                stroke="#e4a83a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M58,56 Q62,54 66,57" stroke="#e4a83a" stroke-width="1" fill="none" opacity="0.6"/>
+          <circle cx="70" cy="53" r="1" fill="#d4a43a"/>
+          <circle cx="95" cy="52" r="1" fill="#d4a43a"/>
+        </svg>
+      </div>
+      <div class="card-number">04</div>
+      <h4>Toast Feta &amp; Pêche</h4>
+      <div class="divider"></div>
+      <ul class="layers">
+        <li>Miel</li>
+        <li>Pêche grillée</li>
+        <li>Crème de feta</li>
+        <li>Pain grillé</li>
+      </ul>
+    </article>
+
+  </div>
+</section>
+
+<!-- ═══════════ BOISSONS ═══════════ -->
+<section class="section" id="boissons">
+  <div class="section-head">
+    <h2>IV. Boissons</h2>
+    <p>Servies dans nos gobelets carrés, chaudes ou fraîches.</p>
+  </div>
+
+  <div class="drinks-wrapper">
+
+    <!-- CHAUDES -->
+    <div class="drinks-col">
+      <h4>Chaud</h4>
+      <div class="drinks-grid">
+
+        <div class="drink-card">
+          <div class="card-visual">
+            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+              <!-- cup -->
+              <rect x="30" y="40" width="60" height="70" rx="2" fill="rgba(255,255,255,0.4)" stroke="#d4cab8" stroke-width="1"/>
+              <!-- lid -->
+              <rect x="28" y="32" width="64" height="10" rx="2" fill="#4a3a2a"/>
+              <circle cx="60" cy="37" r="2.5" fill="#2b2721"/>
+              <!-- coffee -->
+              <rect x="32" y="60" width="56" height="48" fill="#6b3a1f"/>
+              <!-- milk gradient top -->
+              <rect x="32" y="55" width="56" height="8" fill="#a87848"/>
+              <rect x="32" y="50" width="56" height="6" fill="#d4a874"/>
+              <!-- whipped cream top -->
+              <path d="M32,50 Q40,42 48,48 Q56,40 64,48 Q72,42 80,48 Q86,43 88,50 Z" fill="#fdfaf2"/>
+              <circle cx="42" cy="46" r="3" fill="#fdfaf2"/>
+              <circle cx="58" cy="44" r="3.5" fill="#fdfaf2"/>
+              <circle cx="74" cy="46" r="3" fill="#fdfaf2"/>
+              <!-- dust of cinnamon -->
+              <circle cx="50" cy="45" r="0.6" fill="#8b5a2b"/>
+              <circle cx="65" cy="43" r="0.6" fill="#8b5a2b"/>
+              <circle cx="72" cy="45" r="0.5" fill="#8b5a2b"/>
+            </svg>
+          </div>
+          <h4>Viennois Latté</h4>
+        </div>
+
+        <div class="drink-card">
+          <div class="card-visual">
+            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+              <rect x="30" y="40" width="60" height="70" rx="2" fill="rgba(255,255,255,0.4)" stroke="#d4cab8" stroke-width="1"/>
+              <rect x="28" y="32" width="64" height="10" rx="2" fill="#4a3a2a"/>
+              <circle cx="60" cy="37" r="2.5" fill="#2b2721"/>
+              <!-- hot chocolate -->
+              <rect x="32" y="45" width="56" height="63" fill="#5a3018"/>
+              <ellipse cx="60" cy="48" rx="28" ry="3" fill="#8b5a2b"/>
+              <!-- foam bubbles -->
+              <circle cx="45" cy="50" r="1.2" fill="#c89a60" opacity="0.7"/>
+              <circle cx="55" cy="49" r="1.5" fill="#c89a60" opacity="0.7"/>
+              <circle cx="68" cy="50" r="1.2" fill="#c89a60" opacity="0.7"/>
+              <circle cx="78" cy="49" r="1" fill="#c89a60" opacity="0.7"/>
+              <!-- steam -->
+              <path d="M45,25 Q48,20 45,15 Q42,10 45,5" stroke="#c4c0b4" stroke-width="1.2" fill="none" opacity="0.6"/>
+              <path d="M60,25 Q63,20 60,15 Q57,10 60,5" stroke="#c4c0b4" stroke-width="1.2" fill="none" opacity="0.6"/>
+              <path d="M75,25 Q78,20 75,15 Q72,10 75,5" stroke="#c4c0b4" stroke-width="1.2" fill="none" opacity="0.6"/>
+            </svg>
+          </div>
+          <h4>Chocolat Chaud</h4>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FROIDES -->
+    <div class="drinks-col">
+      <h4>Froid</h4>
+      <div class="drinks-grid">
+
+        <div class="drink-card">
+          <div class="card-visual">
+            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+              <rect x="30" y="40" width="60" height="70" rx="2" fill="rgba(255,255,255,0.4)" stroke="#d4cab8" stroke-width="1"/>
+              <rect x="28" y="32" width="64" height="10" rx="2" fill="#8a9a5b"/>
+              <circle cx="60" cy="37" r="2.5" fill="#5a6a3b"/>
+              <!-- juice orange -->
+              <rect x="32" y="48" width="56" height="60" fill="#f2a845"/>
+              <!-- pulp highlights -->
+              <ellipse cx="45" cy="60" rx="3" ry="1" fill="#f7c078" opacity="0.6"/>
+              <ellipse cx="70" cy="75" rx="3" ry="1" fill="#f7c078" opacity="0.6"/>
+              <ellipse cx="55" cy="90" rx="3" ry="1" fill="#f7c078" opacity="0.6"/>
+              <ellipse cx="75" cy="55" rx="2" ry="1" fill="#f7c078" opacity="0.6"/>
+              <!-- liquid surface -->
+              <ellipse cx="60" cy="49" rx="28" ry="2" fill="#f7c078"/>
+              <!-- condensation drops -->
+              <ellipse cx="35" cy="70" rx="0.8" ry="2" fill="#fff" opacity="0.7"/>
+              <ellipse cx="35" cy="85" rx="0.8" ry="2" fill="#fff" opacity="0.5"/>
+              <ellipse cx="85" cy="75" rx="0.8" ry="2" fill="#fff" opacity="0.7"/>
+              <ellipse cx="85" cy="95" rx="0.8" ry="2" fill="#fff" opacity="0.5"/>
+            </svg>
+          </div>
+          <h4>Jus de Fruit</h4>
+        </div>
+
+        <div class="drink-card">
+          <div class="card-visual">
+            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+              <rect x="30" y="40" width="60" height="70" rx="2" fill="rgba(255,255,255,0.4)" stroke="#d4cab8" stroke-width="1"/>
+              <rect x="28" y="32" width="64" height="10" rx="2" fill="#d4486a"/>
+              <circle cx="60" cy="37" r="2.5" fill="#a83050"/>
+              <!-- milkshake pink -->
+              <rect x="32" y="55" width="56" height="53" fill="#fbc4c8"/>
+              <!-- swirl -->
+              <path d="M32,70 Q42,67 52,70 Q62,73 72,70 Q82,67 88,70" stroke="#f5a0a4" stroke-width="2" fill="none" opacity="0.7"/>
+              <path d="M32,85 Q42,82 52,85 Q62,88 72,85 Q82,82 88,85" stroke="#f5a0a4" stroke-width="2" fill="none" opacity="0.7"/>
+              <!-- whipped cream top -->
+              <path d="M32,55 Q40,45 48,52 Q56,42 64,52 Q72,44 80,52 Q86,46 88,55 Z" fill="#fdfaf2"/>
+              <circle cx="48" cy="48" r="4" fill="#fdfaf2"/>
+              <circle cx="60" cy="45" r="4" fill="#fdfaf2"/>
+              <circle cx="72" cy="48" r="4" fill="#fdfaf2"/>
+              <!-- strawberry -->
+              <path d="M55,38 Q60,33 65,38 Q65,43 60,45 Q55,43 55,38 Z" fill="#d4484e"/>
+              <circle cx="58" cy="40" r="0.5" fill="#fbc4c8"/>
+              <circle cx="62" cy="41" r="0.5" fill="#fbc4c8"/>
+              <path d="M57,35 L60,33 L63,35" stroke="#6a8f4a" stroke-width="0.8" fill="none"/>
+            </svg>
+          </div>
+          <h4>Milkshake Vanille &amp; Fraise</h4>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="mark">Carrément Brunch</div>
+  <p>Carrément Bon · Carrément Brunch</p>
+</footer>
+
+</body>
+</html>
